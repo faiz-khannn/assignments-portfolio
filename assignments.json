@@ -1,0 +1,20 @@
+{
+  "assignments": [
+    {
+      "id": "Assignment-1",
+      "title": "Assignment 1: Blogging Platform",
+      "description": "A simple blog platform with navigation and posts.",
+      "docPath": "docs/Assignment-1.pdf",
+      "filePath": "assignments/Assignment-1.html",
+      "fileType": "html"
+    },
+    {
+      "id": "Assignment-5",
+      "title": "Assignment 5: JavaScript Fundamentals",
+      "description": "JavaScript functions with various examples.",
+      "docPath": "docs/Assignment-5.pdf",
+      "filePath": "assignments/Assignment-5.js",
+      "fileType": "js"
+    }
+  ]
+}

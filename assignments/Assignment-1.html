@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Blog</title>
+  <style>
+    /* Optional styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      background: #444;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 80%;
+      margin: 20px auto;
+    }
+
+    .blog-post {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+
+    .login {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-top: 30px;
+    }
+
+    .login input {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Welcome to My Blog</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Blog Content -->
+  <div class="container">
+    <div class="blog-post">
+      <h2>First Blog Post</h2>
+      <p>This is my first blog post. I’m learning HTML and CSS to build a blogging platform!</p>
+      <img src="https://via.placeholder.com/600x300" alt="Blog image">
+    </div>
+
+    <div class="blog-post">
+      <h2>Second Blog Post</h2>
+      <p>Here’s another blog post with some content and an image.</p>
+      <img src="https://via.placeholder.com/600x300" alt="Another blog image">
+    </div>
+
+    <!-- Login Section -->
+    <div class="login">
+      <h2>Login</h2>
+      <form>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password">
+
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
