@@ -304,107 +304,85 @@ async function executeJavaScript(filePath) {
         
         const code = await response.text();
         
-        // Create a sandbox iframe for code execution
-        const sandbox = document.createElement('iframe');
-        sandbox.style.display = 'none';
-        document.body.appendChild(sandbox);
+        // Direct execution approach instead of iframe
+        const logs = [];
+        const originalConsoleLog = console.log;
         
-        const sandboxContent = `
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <script>
-                // Capture console.log output
-                const logs = [];
-                const originalConsoleLog = console.log;
-                console.log = function(...args) {
-                    logs.push(args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' '));
-                    originalConsoleLog.apply(console, args);
-                };
-                
-                // Function to run the code and return results
-                function runCode() {
-                    try {
-                        const result = eval(\`${code.replace(/`/g, '\\`')}\`);
-                        return { logs, result, error: null };
-                    } catch (error) {
-                        return { logs, result: null, error: error.message };
-                    }
-                }
-                
-                // Send results back to parent
-                window.parent.postMessage(runCode(), '*');
-                </script>
-            </head>
-            <body></body>
-            </html>
-        `;
+        // Override console.log to capture output
+        console.log = function(...args) {
+            logs.push(args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' '));
+            originalConsoleLog.apply(console, args);
+        };
         
-        // Load the sandbox HTML
-        sandbox.srcdoc = sandboxContent;
+        // Execute the code directly
+        let result;
+        let error = null;
         
-        // Listen for message from the iframe
-        window.addEventListener('message', function(event) {
-            // Clean up
-            setTimeout(() => document.body.removeChild(sandbox), 100);
+        try {
+            // Create a function from the code and execute it
+            const executeFunction = new Function(code);
+            result = executeFunction();
+        } catch (err) {
+            error = err.message;
+        }
+        
+        // Restore original console.log
+        console.log = originalConsoleLog;
+        
+        // Create animated output display
+        if (error) {
+            outputContent.innerHTML = '';
+            setTimeout(() => {
+                outputContent.innerHTML = `
+                    <div class="error-message">
+                        <h4>Error:</h4>
+                        <pre>${escapeHtml(error)}</pre>
+                    </div>
+                `;
+                outputContainer.classList.add('error-container');
+                outputContainer.classList.remove('output-container');
+            }, 300);
+        } else {
+            // Reset and animate in the results
+            outputContainer.classList.add('output-container');
+            outputContainer.classList.remove('error-container');
             
-            const { logs, result, error } = event.data;
+            outputContent.innerHTML = '';
             
-            // Create animated output display
-            if (error) {
-                outputContent.innerHTML = '';
-                setTimeout(() => {
-                    outputContent.innerHTML = `
-                        <div class="error-message">
-                            <h4>Error:</h4>
-                            <pre>${escapeHtml(error)}</pre>
+            setTimeout(() => {
+                let outputHTML = '';
+                
+                // Add logs
+                if (logs.length > 0) {
+                    outputHTML += `
+                        <div class="console-output">
+                            <h4>Console Output:</h4>
+                            <pre>${logs.map(log => escapeHtml(log)).join('\n')}</pre>
                         </div>
                     `;
-                    outputContainer.classList.add('error-container');
-                    outputContainer.classList.remove('output-container');
-                }, 300);
-            } else {
-                // Reset and animate in the results
-                outputContainer.classList.add('output-container');
-                outputContainer.classList.remove('error-container');
+                }
                 
-                outputContent.innerHTML = '';
-                
-                setTimeout(() => {
-                    let outputHTML = '';
+                // Add result if it exists and is not undefined
+                if (result !== undefined && result !== null) {
+                    let resultOutput;
                     
-                    // Add logs
-                    if (logs.length > 0) {
-                        outputHTML += `
-                            <div class="console-output">
-                                <h4>Console Output:</h4>
-                                <pre>${logs.map(log => escapeHtml(log)).join('\n')}</pre>
-                            </div>
-                        `;
+                    if (typeof result === 'object') {
+                        resultOutput = JSON.stringify(result, null, 2);
+                    } else {
+                        resultOutput = String(result);
                     }
                     
-                    // Add result if it exists and is not undefined
-                    if (result !== undefined && result !== null) {
-                        let resultOutput;
-                        
-                        if (typeof result === 'object') {
-                            resultOutput = JSON.stringify(result, null, 2);
-                        } else {
-                            resultOutput = String(result);
-                        }
-                        
-                        outputHTML += `
-                            <div class="result-output">
-                                <h4>Result:</h4>
-                                <pre>${escapeHtml(resultOutput)}</pre>
-                            </div>
+                    outputHTML += `
+                        <div class="result-output">
+                            <h4>Result:</h4>
+                            <pre>${escapeHtml(resultOutput)}</pre>
+                        </div>
                         `;
                     }
                     
                     outputContent.innerHTML = outputHTML || '<p>Code executed with no output.</p>';
                 }, 300);
             }
-        }, { once: true });
     } catch (error) {
         console.error('Error executing JavaScript:', error);
         const outputContainer = document.getElementById('output-container');
@@ -604,8 +582,10 @@ function createPreviewPage(assignment) {
                                     originalConsoleLog.apply(console, args);
                                 };
                                 
-                                // Run the code
-                                const result = eval(\`${code.replace(/`/g, '\\`')}\`);
+                                // Run the code using Function constructor instead of eval
+                                let result;
+                                const executeFunction = new Function(${JSON.stringify(code)});
+                                result = executeFunction();
                                 
                                 // Restore console.log
                                 console.log = originalConsoleLog;

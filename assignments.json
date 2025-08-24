@@ -9,6 +9,22 @@
       "fileType": "html"
     },
     {
+      "id": "Assignment-2",
+      "title": "Assignment 2: Glittle Website",
+      "description": "Applied css to Glittle website.",
+      "docPath": "docs/Assignment-2.pdf",
+      "filePath": "assignments/assignment-2/Home.html",
+      "fileType": "html"
+    },
+    {
+      "id": "Assignment-2-JS",
+      "title": "Assignment 2: JavaScript Functions and Array Methods",
+      "description": "Practice with JavaScript functions and array methods.",
+      "docPath": "docs/Assignment-2.pdf",
+      "filePath": "assignments/Assignment-2.js",
+      "fileType": "js"
+    },
+    {
       "id": "Assignment-5",
       "title": "Assignment 5: JavaScript Fundamentals",
       "description": "JavaScript functions with various examples.",
