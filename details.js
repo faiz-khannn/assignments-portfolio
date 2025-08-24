@@ -65,7 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
             previewBtn.addEventListener('click', () => {
                 if (assignment.fileType === 'html') {
                     window.open(assignment.filePath, '_blank');
-                } else if (assignment.fileType === 'js') {
+                } else if (assignment.fileType === 'css') {
+                    window.open(assignment.filePath, '_blank');
+                } 
+                else if (assignment.fileType === 'js') {
                     // Create a preview HTML file dynamically with the JS content
                     createPreviewPage(assignment);
                 }

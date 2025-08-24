@@ -13,9 +13,689 @@
     <!--font Awesome-->
     <script src="https://kit.fontawesome.com/d34a888f2c.js"></script>
     <!--stylesheets-->
-   <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: "Poppins", sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            background-color: white;
+            /* This will now be visible */
+        }
+
+
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            background-color: transparent;
+            /* Let red background show through */
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: #333;
+            letter-spacing: 2px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #000000 !important;
+            font-weight: 400;
+            font-size: 1rem;
+            position: relative;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 2px;
+            background-color: #ff6b47;
+            transition: width 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000 !important;
+            font-weight: 700;
+        }
+
+        .navbar-nav .nav-link:hover::after {
+            width: 100%;
+        }
+
+
+        header {
+
+            background-image: url("bg.jpg");
+            background-color: white;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .header-content h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .and {
+            color: #ff6b47;
+            font-weight: 400;
+        }
+
+        .line {
+            width: 100px;
+            height: 3px;
+            background: #ff6b47;
+            margin: 2rem auto;
+        }
+
+        .header-content-line {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .glittle {
+            color: #ff6b47;
+            font-weight: 400;
+        }
+
+        .header-content-para {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .button {
+            background: #ff6b47;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+        }
+
+        .button:hover {
+            background: white;
+            color: #ff6b47;
+            transform: translateY(-2px);
+        }
+
+
+        .name {
+            text-align: center;
+            padding: 4rem 0 0.5rem;
+            font-size: 3rem;
+            margin-bottom: 0;
+
+        }
+
+        .why {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+        }
+
+        .company {
+            color: #ff6b47;
+        }
+
+        .line-2 {
+            width: 15%;
+            height: 3px;
+            background: #ff6b47;
+            margin: 0rem auto 3rem;
+        }
+
+
+        .services {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .quote-1 {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #333;
+            font-weight: 400;
+        }
+
+        .grid-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .grid-box {
+            padding: 2.5rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .grid-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #f3925d, #eb6b4b);
+        }
+
+        .grid-box h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .line-grid {
+            width: 85%;
+            height: 3px;
+            background: #ff6b47;
+            margin: 0.5rem auto;
+        }
+
+        .line-grids {
+            width: 8%;
+            height: 3px;
+            background: #ff6b47;
+            margin: 0.5rem auto;
+        }
+
+        .grid-box p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+
+        .solution {
+            padding: 5rem 0;
+            text-align: center;
+            background-color: white;
+        }
+
+        .heading-content .display-4 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .heading-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .solution-content {
+            margin-top: 3rem;
+        }
+
+        .prj-content,
+        .prj-content-2 {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .prj-content {
+            margin-bottom: 12rem;
+        }
+
+        .prj-img {
+            width: 28%;
+            height: 25%;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .prj-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0.5, 0.5, 0.5, 0.5);
+        }
+
+        .prj-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .services-2 {
+            padding: 5rem 0;
+            position: relative;
+            overflow: visible;
+            background-color: white;
+        }
+
+        .circle {
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            width: 600px;
+            height: 600px;
+            animation: breathe 6s ease-in-out infinite;
+            opacity: 1;
+            pointer-events: none;
+        }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        @keyframes breathe {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+        }
+
+        .container-2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .grid-wrapper-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+            /* Increased z-index */
+        }
+
+        .grid-box-2:nth-child(1) {
+            margin-left: 15%;
+            margin-right: 10%;
+        }
+
+        .grid-box-2:nth-child(2) {
+            margin-left: 1%;
+            margin-right: 20%;
+        }
+
+        .grid-box-2:nth-child(3) {
+            margin-left: 15%;
+            margin-right: 10%;
+        }
+
+        .grid-box-2 {
+            padding: 2rem;
+            border-radius: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .grid-box-2:hover {
+            transform: translateY(-5px);
+        }
+
+        .mobileapp {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        }
+
+        .webdesign {
+            background: linear-gradient(135deg, #ff6b47, #ff8e53);
+        }
+
+        .marketing {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .grid-box-2 img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .grid-box-2 h3 {
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .services-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-content h2 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+
+        .services-content .line {
+            width: 50%;
+            height: 3px;
+            background: #ff6b47;
+            margin: 1.5rem 0;
+        }
+
+        .services-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .learnmore {
+            background: linear-gradient(135deg, #7c3aed, #e28a50);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .learnmore:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #5df1ac, #57e1f3);
+        }
+
+
+        .contactus {
+            padding: 4rem 0;
+            background-color: white;
+        }
+
+        .ctn-container {
+            max-width: 89%;
+            margin: 0 auto;
+            padding: 3rem;
+            box-shadow: 2px 2px 2px 2px rgba(0.3, 0.5, 0.3, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .ctn-text h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .ctn-text p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .contactus-btn {
+            background: linear-gradient(135deg, #7c3aed, #e28a50);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .contactus-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #5df1ac, #57e1f3);
+        }
+
+
+        .footer {
+            padding: 3rem 0 1rem;
+            background-image: url("footer-agency.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: auto;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            min-height: 300px;
+        }
+
+        .footer-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex: 1;
+        }
+
+        .footer-content .name {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+
+        .color {
+            color: #ff6b47;
+        }
+
+        .logo-2 {
+            position: absolute;
+            font-size: 8rem;
+            font-weight: 600;
+            color: #c6c7ca;
+            opacity: 0.3;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            z-index: 1;
+            line-height: 1;
+            margin: 0;
+        }
+
+        .icons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .icons a img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .icons a:hover img {
+            transform: scale(1.2);
+        }
+
+        .footer-text {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .footer-text p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #000000;
+            margin-bottom: 1rem;
+        }
+
+        .footer hr {
+            margin: 2rem 0 1rem;
+            border-color: #4a5568;
+        }
+
+        .copyright {
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content-line {
+                font-size: 1.3rem;
+            }
+
+            .container-2 {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .ctn-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .footer-content {
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-content .name {
+                text-align: center;
+            }
+
+            .icons {
+                justify-content: center;
+            }
+
+            .footer-text {
+                text-align: center;
+                max-width: none;
+            }
+
+            .logo-2 {
+                font-size: 6rem;
+                position: relative;
+                transform: none;
+                margin-bottom: 1rem;
+                top: auto;
+                left: auto;
+            }
+
+            .prj-content,
+            .prj-content-2 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .circle {
+                width: 400px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .grid-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .prj-img {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .circle {
+                width: 300px;
+                height: 300px;
+            }
+
+            .logo-2 {
+                font-size: 4rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -24,9 +704,11 @@
         <nav class="navbar navbar-expand-md fixed-top bg-white">
             <div class="container-fluid">
                 <label for="" class="logo fw-bolder px-4">GLITTLE</label>
-                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
+                <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class=" navbar-collapse justify-content-center" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
                         <a class="nav-link py-md-0 px-md-0 mx-3" aria-current="page" href="#home">Home</a>
@@ -41,16 +723,18 @@
             <div class="header-content">
                 <h1>Design <span class="and">&</span><br>Development</h1>
                 <div class="line"></div>
-                <h2 class="header-content-line">Add some '<span class="glittle">GLITTLE</span>' to your company, one link at a time.</h2>
-                <p class="header-content-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Volups cons consequuntur veniam temporibus iusto.</p>
+                <h2 class="header-content-line">Add some '<span class="glittle">GLITTLE</span>' to your company, one
+                    link at a time.</h2>
+                <p class="header-content-para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Volups cons
+                    consequuntur veniam temporibus iusto.</p>
                 <button class="button" type="button">Get Started</button>
             </div>
         </div>
     </header>
-    <div class="name" >
+    <div class="name">
         <h1 class="why">Why our <span class="company">Company</span></h1>
     </div>
-    <div class="line-2" ></div>
+    <div class="line-2"></div>
 
 
 
@@ -65,17 +749,20 @@
                 <div class="grid-box ">
                     <h2>Web<br>Development</h2>
                     <div class="line-grid"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor accusantium ducimus doloribus, nulla sit facilis! Impedit cumque iusto harum consequuntur.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor accusantium ducimus doloribus,
+                        nulla sit facilis! Impedit cumque iusto harum consequuntur.</p>
                 </div>
                 <div class="grid-box ">
                     <h2>Innovative<br>Design</h2>
                     <div class="line-grid"></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, numquam! Iste esse adipisci quas ducimus vitae necessitatibus temporibus ipsa consectetur.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, numquam! Iste esse adipisci
+                        quas ducimus vitae necessitatibus temporibus ipsa consectetur.</p>
                 </div>
                 <div class="grid-box ">
                     <h2>Affordable<br>Cost</h2>
                     <div class="line-grid"></div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto quasi id ut eaque illum distinctio nihil consequuntur cum nesciunt?</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto quasi id ut eaque
+                        illum distinctio nihil consequuntur cum nesciunt?</p>
                 </div>
             </div>
         </div>
@@ -148,8 +835,11 @@
                 </div>
                 <h2>Our Best Services</h2>
                 <div class="line"></div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat optio impedit nisi unde quod earum<br> illum saepe ipsum? Nisi laudantium mollitia delectus vitae quaerat incidunt ratione. Quisquam nulla suscipit laudantium?</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas pariatur <br>non iste earum dolore tempore quaerat nulla alias sequi ratione!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat optio impedit nisi unde quod
+                    earum<br> illum saepe ipsum? Nisi laudantium mollitia delectus vitae quaerat incidunt ratione.
+                    Quisquam nulla suscipit laudantium?</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas pariatur <br>non iste earum dolore
+                    tempore quaerat nulla alias sequi ratione!</p>
                 <button type="button" class="learnmore">Learn More</button>
             </div>
         </div>
@@ -160,7 +850,7 @@
     <!---------------------------------call to Action contact us------------------------------>
 
 
-    <section class="contactus" >
+    <section class="contactus">
         <div class="ctn-container">
             <div class="ctn-text">
                 <h2>"Get Connected with GLITTLE."</h2>
@@ -199,8 +889,12 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
 </body>
 
 
