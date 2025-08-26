@@ -114,13 +114,13 @@
             width: 100px;
             height: 3px;
             background: #ff6b47;
-            margin: 2rem auto;
+            margin: 0.5rem auto;
         }
 
         .header-content-line {
             font-size: 1.8rem;
             font-weight: 300;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .glittle {
@@ -157,10 +157,17 @@
 
         .name {
             text-align: center;
-            padding: 4rem 0 0.5rem;
+            padding: 0rem 0.4rem 3.9rem;
             font-size: 3rem;
             margin-bottom: 0;
 
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                padding: 0rem 0.2rem 1.5rem;
+            }
+            
         }
 
         .why {
@@ -313,7 +320,7 @@
             top: 50%;
             left: 20%;
             transform: translate(-50%, -50%);
-            z-index: 0;
+            z-index: -1;
             width: 600px;
             height: 600px;
             animation: breathe 6s ease-in-out infinite;
@@ -353,7 +360,7 @@
             gap: 4rem;
             align-items: center;
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
         .grid-wrapper-2 {
@@ -361,8 +368,7 @@
             flex-direction: column;
             gap: 2rem;
             position: relative;
-            z-index: 2;
-            /* Increased z-index */
+            z-index: 1;
         }
 
         .grid-box-2:nth-child(1) {
@@ -388,7 +394,7 @@
             transition: transform 0.3s ease;
             position: relative;
             overflow: hidden;
-            z-index: 2;
+            z-index: 1;
         }
 
         .grid-box-2:hover {
@@ -421,7 +427,7 @@
 
         .services-content {
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
 
         .services-content h2 {
@@ -539,13 +545,23 @@
             flex: 1;
         }
 
+        .logo-wrapper {
+            position: relative;
+            width: fit-content;
+            margin-bottom: 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
         .footer-content .name {
             font-size: 2.5rem;
             font-weight: 600;
-            margin-bottom: 1rem;
             color: #333;
             position: relative;
             z-index: 2;
+            margin: 0;
+            line-height: 1;
         }
 
         .color {
@@ -564,13 +580,13 @@
             z-index: 1;
             line-height: 1;
             margin: 0;
+            white-space: nowrap;
         }
 
         .icons {
             display: flex;
             justify-content: flex-start;
             gap: 1rem;
-            margin-top: 1rem;
             position: relative;
             z-index: 2;
         }
@@ -617,6 +633,10 @@
                 font-size: 1.3rem;
             }
 
+            .circle {
+                display: none;
+            }
+
             .container-2 {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -638,7 +658,7 @@
                 text-align: center;
             }
 
-            .footer-content .name {
+            .logo-wrapper {
                 text-align: center;
             }
 
@@ -653,11 +673,6 @@
 
             .logo-2 {
                 font-size: 6rem;
-                position: relative;
-                transform: none;
-                margin-bottom: 1rem;
-                top: auto;
-                left: auto;
             }
 
             .prj-content,
@@ -693,6 +708,14 @@
 
             .logo-2 {
                 font-size: 4rem;
+            }
+
+            .footer-content .name {
+                font-size: 2rem;
+            }
+
+            .logo-wrapper {
+                height: 40px;
             }
         }
     </style>
@@ -869,13 +892,14 @@
     <section class="footer">
         <div class="footer-container">
             <div class="footer-content">
-                <h2 class="name">Glit<span class="color">T</span>le</h2>
-                <label class="logo-2">LOGO</label>
+                <div class="logo-wrapper">
+                    <h2 class="name">Glit<span class="color">T</span>le</h2>
+                    <label class="logo-2">LOGO</label>
+                </div>
                 <div class="icons">
                     <a href="#"><img src="facebook.png"></a>
                     <a href="#"><img src="twitter.png"></a>
                     <a href="#"><img src="instagram.png"></a>
-
                 </div>
             </div>
             <div class="footer-text">
@@ -884,7 +908,7 @@
             </div>
         </div>
         <hr>
-        <h6 class="copyright">@Copyright from</h mx-36>
+        <h6 class="copyright">@Copyright from</h6>
     </section>
 
 
@@ -896,6 +920,4 @@
         integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
         crossorigin="anonymous"></script>
 </body>
-
-
 </html>
