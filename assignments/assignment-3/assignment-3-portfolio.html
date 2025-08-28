@@ -263,13 +263,13 @@
         position: relative;
         overflow: hidden;
         animation: profileRotate 8s linear infinite;
-        background-image: url("profile.jpg"); /* Add your image path here */
+        background-image: url("profile.jpg"); 
         background-size: cover;
         background-position: center;
       }
 
       .profile-image::before {
-        content: ""; /* Remove emoji when using real image */
+        content: ""; 
         font-size: 8rem;
         animation: bounce 2s ease-in-out infinite;
       }
@@ -345,12 +345,11 @@
         justify-content: center;
         font-size: 6rem;
         transition: transform 0.3s ease;
-        background-image: url("profile.jpg"); /* Add your image path here */
+        background-image: url("profile.jpg"); 
         background-size: cover;
         background-position: center;
       }
 
-      /* Hide emoji when using real image */
       .about-avatar::before {
         content: "";
       }
@@ -782,8 +781,6 @@
         </div>
         <div class="hero-image">
           <div class="profile-image">
-            <!-- Option: Replace with actual image -->
-            <!-- <img src="your-profile-photo.jpg" alt="Mohammad Faiz Khan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"> -->
           </div>
         </div>
       </div>
@@ -921,9 +918,9 @@
             <a href="mailto:s.mohdfaiz.khan@gmail.com" class="social-link"
               >📧</a
             >
-            <a href="#" class="social-link">💼</a>
-            <a href="#" class="social-link">🐙</a>
-            <a href="#" class="social-link">📷</a>
+            <a href="#" class="social-link" target="_blank">💼</a>
+            <a href="#" class="social-link" target="_blank">🐙</a>
+            <a href="#" class="social-link" target="_blank">📷</a>
           </div>
         </div>
         <form class="contact-form">
@@ -1035,7 +1032,7 @@
         }
       });
 
-      // Add some interactive hover effects
+      // interactive hover effects
       document.querySelectorAll(".skill-card").forEach((card) => {
         card.addEventListener("mouseenter", () => {
           card.style.transform = "translateY(-5px) scale(1.05)";
@@ -1045,7 +1042,7 @@
         });
       });
 
-      // Typing effect for hero title (optional enhancement)
+      // Typing effect for hero title 
       function typeWriter(element, text, speed = 100) {
         let i = 0;
         element.textContent = "";
@@ -1059,7 +1056,7 @@
         type();
       }
 
-      // Initialize typing effect after page load
+      // typing effect after page load
       window.addEventListener("load", () => {
         setTimeout(() => {
           const heroTitle = document.querySelector(".hero-title");
@@ -1069,7 +1066,7 @@
         }, 1000);
       });
 
-      // Add dynamic background particles
+      // dynamic background particles
       function createParticle() {
         const particle = document.createElement("div");
         particle.style.position = "fixed";
@@ -1101,7 +1098,7 @@
       // Create particles periodically
       setInterval(createParticle, 2000);
 
-      // Add scroll-triggered animations for project cards
+      // scroll-triggered animations for project cards
       const projectCards = document.querySelectorAll(".project-card");
       const projectObserver = new IntersectionObserver(
         (entries) => {
@@ -1124,7 +1121,7 @@
         projectObserver.observe(card);
       });
 
-      // Add loading screen animation
+      // loading screen animation
       function showLoadingScreen() {
         const loadingScreen = document.createElement("div");
         loadingScreen.style.cssText = `
@@ -1172,10 +1169,10 @@
         }, 2000);
       }
 
-      // Show loading screen on page load
+      // loading screen on page load
       document.addEventListener("DOMContentLoaded", showLoadingScreen);
 
-      // Add mouse follower effect
+      // mouse follower effect
       let mouseFollower = null;
 
       function createMouseFollower() {
@@ -1210,16 +1207,15 @@
         });
       }
 
-      // Add easter egg - Konami code
+      // easter egg - Konami code
       let konamiCode = [];
-      const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓←→←→BA
+      const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
 
       document.addEventListener("keydown", (e) => {
         konamiCode.push(e.keyCode);
         konamiCode = konamiCode.slice(-10);
 
         if (konamiCode.join(",") === konamiSequence.join(",")) {
-          // Easter egg activated!
           document.body.style.animation = "rainbow 2s ease-in-out";
 
           const style = document.createElement("style");
