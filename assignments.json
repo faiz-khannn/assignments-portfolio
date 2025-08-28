@@ -25,6 +25,14 @@
       "fileType": "js"
     },
     {
+      "id": "Assignment-3",
+      "title": "Assignment 3: Portfolio Website",
+      "description": "Built a personal portfolio website.",
+      "docPath": "docs/Assignment-3.pdf",
+      "filePath": "assignments/assignment-3/assignment-3-portfolio.html",
+      "fileType": "html"
+    },
+    {
       "id": "Assignment-5",
       "title": "Assignment 5: JavaScript Fundamentals",
       "description": "JavaScript functions with various examples.",
