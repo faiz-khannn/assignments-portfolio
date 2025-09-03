@@ -33,6 +33,22 @@
       "fileType": "html"
     },
     {
+      "id": "Assignment-4-GUPC",
+      "title": "Assignment 4: Dynamic Github User Profile Card",
+      "description": "Made a dynamic Github user profile card using GitHub API.",
+      "docPath": "docs/Assignment-4.pdf",
+      "filePath": "assignments/assignment-4/gupc.html",
+      "fileType": "html"
+    },
+    {
+      "id": "Assignment-4-WC",
+      "title": "Assignment 4: Weather Card",
+      "description": "Built a wearther card using weather API.",
+      "docPath": "docs/Assignment-4.pdf",
+      "filePath": "assignments/assignment-4/weathercard.html",
+      "fileType": "html"
+    },
+    {
       "id": "Assignment-5",
       "title": "Assignment 5: JavaScript Fundamentals",
       "description": "JavaScript functions with various examples.",
