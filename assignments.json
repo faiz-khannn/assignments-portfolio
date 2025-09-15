@@ -55,6 +55,14 @@
       "docPath": "docs/Assignment-5.pdf",
       "filePath": "assignments/Assignment-5.js",
       "fileType": "js"
+    },
+    {
+      "id": "Assignment-6",
+      "title": "Assignment 6: JavaScript Functions and Array Methods",
+      "description": "JavaScript functions and Array Methods with various examples.",
+      "docPath": "docs/Assignment-6.pdf",
+      "filePath": "assignments/Assignment-6.js",
+      "fileType": "js"
     }
   ]
 }
