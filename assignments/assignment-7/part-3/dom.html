@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>DOM Manipulation</title>
+    <style>
+      .box {
+        padding: 10px;
+        margin: 5px;
+        background: lightblue;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      function createAndManipulateDOM() {
+        let container = document.getElementById("container");
+
+        // Create a new element
+        let newDiv = document.createElement("div");
+        newDiv.className = "box";
+        newDiv.textContent = "Click Me!";
+
+        // Add event listener
+        newDiv.addEventListener("click", () => {
+          newDiv.textContent = "You clicked me!";
+          newDiv.style.background = "lightgreen";
+        });
+
+        // Append to container
+        container.appendChild(newDiv);
+      }
+
+      createAndManipulateDOM();
+    </script>
+  </body>
+</html>

@@ -63,6 +63,30 @@
       "docPath": "docs/Assignment-6.pdf",
       "filePath": "assignments/Assignment-6.js",
       "fileType": "js"
+    },
+    {
+      "id": "Assignment-7",
+      "title": "Assignment 7: Array Methods",
+      "description": "Array Manipulation.",
+      "docPath": "docs/Assignment-7.pdf",
+      "filePath": "assignments/assignment-7/Assignment-7-Part1&2.js",
+      "fileType": "js"
+    },
+    {
+      "id": "Assignment-7P3",
+      "title": "Assignment 7: DOM Manipulation",
+      "description": "DOM Element Crea􀆟on and Manipulation.",
+      "docPath": "docs/Assignment-7.pdf",
+      "filePath": "assignments/part-3/dom.html",
+      "fileType": "html"
+    },
+    {
+      "id": "Assignment-7P4",
+      "title": "Assignment 7: Form Validation",
+      "description": "Form validation using JavaScript.",
+      "docPath": "docs/Assignment-7.pdf",
+      "filePath": "assignments/part-4/form.html",
+      "fileType": "html"
     }
   ]
 }
