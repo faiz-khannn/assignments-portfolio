@@ -1,8 +1,8 @@
-// Task 1: Array Manipula􀆟on
-// Write a program that performs the following opera􀆟ons on an array:
+// Task 1: Array Manipulation
+// Write a program that performs the following operations on an array:
 // 1. Create an array of numbers.
 // 2. Use the array methods to add, remove, or modify elements in the array.
-// 3. Display the updated array in the console a􀅌er each opera􀆟on.
+// 3. Display the updated array in the console a􀅌er each operation.
 
 function arrayManipulation() {
   let numbers = [10, 20, 30, 40];
@@ -32,12 +32,12 @@ function arrayManipulation() {
 arrayManipulation();
 
 
-// Task 2: Array Filtering and Transforma􀆟on
-// Write a program that performs the following opera􀆟ons on an array of objects:
-// 1. Create an array of objects with different proper􀆟es.
+// Task 2: Array Filtering and Transformation
+// Write a program that performs the following operations on an array of objects:
+// 1. Create an array of objects with different properties.
 // 2. Use array methods like filter, map, or reduce to filter and transform the array based on
-// specific condi􀆟ons.
-// 3. Display the updated array in the console a􀅌er each opera􀆟on.
+// specific conditions.
+// 3. Display the updated array in the console after each operation.
 
 function arrayFilteringTransformation() {
   let students = [
