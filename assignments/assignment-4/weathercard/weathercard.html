@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Weather App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>🌤️ WeatherVibe</h1>
+    <p>Beautiful weather insights for your world</p>
+  </div>
+
+  <div class="search-container">
+    <input type="text" id="cityInput" placeholder="Search for any city... (e.g., London, Tokyo, New York)">
+    <button onclick="getWeather()">Search</button>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    <p>Getting weather data...</p>
+  </div>
+
+  <div class="weather-container" id="weatherContainer">
+    <div class="main-card">
+      <img id="weatherIcon" class="weather-icon" src="" alt="Weather Icon">
+      <div class="city-name" id="cityName"></div>
+      <div class="temperature" id="temperature"></div>
+      <div class="description" id="description"></div>
+      <div class="feels-like" id="feelsLike"></div>
+      
+      <div class="sun-info">
+        <div class="sun-item">
+          <span class="sun-icon">🌅</span>
+          <div class="sun-time">Sunrise</div>
+          <div class="sun-value" id="sunrise"></div>
+        </div>
+        <div class="sun-item">
+          <span class="sun-icon">🌇</span>
+          <div class="sun-time">Sunset</div>
+          <div class="sun-value" id="sunset"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="details-cards">
+      <div class="details-card">
+        <div class="detail-section">
+          <h3>🌡️ Temperature</h3>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="icon">🔥</span>
+              <div class="label">High</div>
+              <div class="value" id="tempMax"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">❄️</span>
+              <div class="label">Low</div>
+              <div class="value" id="tempMin"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">🤒</span>
+              <div class="label">Feels Like</div>
+              <div class="value" id="feelsLikeDetail"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="details-card">
+        <div class="detail-section">
+          <h3>🌪️ Wind & Air</h3>
+          <div class="detail-grid">
+            <div class="detail-item">
+              <span class="icon">💨</span>
+              <div class="label">Wind Speed</div>
+              <div class="value" id="windSpeed"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">🧭</span>
+              <div class="label">Direction</div>
+              <div class="value" id="windDirection"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">💧</span>
+              <div class="label">Humidity</div>
+              <div class="value" id="humidity"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">📊</span>
+              <div class="label">Pressure</div>
+              <div class="value" id="pressure"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">☁️</span>
+              <div class="label">Clouds</div>
+              <div class="value" id="clouds"></div>
+            </div>
+            <div class="detail-item">
+              <span class="icon">👁️</span>
+              <div class="label">Visibility</div>
+              <div class="value" id="visibility"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="error" id="errorMsg"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -226,8 +226,22 @@ main {
     color: var(--text-secondary);
 }
 
-.file-type svg {
+.file-icons-container {
+    display: flex;
+    align-items: center;
     margin-right: 0.5rem;
+}
+
+.file-icon {
+    display: inline-flex;
+    margin-right: 0.25rem;
+}
+
+.file-icon:last-child {
+    margin-right: 0;
+}
+
+.file-type svg {
     color: var(--accent-color);
 }
 

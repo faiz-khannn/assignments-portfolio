@@ -5,88 +5,206 @@
       "title": "Assignment 1: Blogging Platform",
       "description": "A simple blog platform with navigation and posts.",
       "docPath": "docs/Assignment-1.pdf",
-      "filePath": "assignments/Assignment-1.html",
-      "fileType": "html"
+      "files": [
+        {
+          "filePath": "assignments/assignment-1/Assignment-1.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        },
+        {
+          "filePath": "assignments/assignment-1/styles.css",
+          "fileType": "css",
+          "fileName": "CSS"
+        }
+      ]
     },
     {
       "id": "Assignment-2",
       "title": "Assignment 2: Glittle Website",
       "description": "Applied css to Glittle website.",
       "docPath": "docs/Assignment-2.pdf",
-      "filePath": "assignments/assignment-2/Home.html",
-      "fileType": "css"
+      "files": [
+        {
+          "filePath": "assignments/assignment-2/Home.html",
+          "fileType": "html",
+          "fileName": "Home.html"
+        },
+        {
+          "filePath": "assignments/assignment-2/styles.css",
+          "fileType": "css",
+          "fileName": "styles.css"
+        }
+      ]
     },
     {
       "id": "Assignment-2-JS",
       "title": "Assignment 2: JavaScript Functions and Array Methods",
       "description": "Practice with JavaScript functions and array methods.",
       "docPath": "docs/Assignment-2.pdf",
-      "filePath": "assignments/Assignment-2.js",
-      "fileType": "js"
+      "files": [
+        {
+          "filePath": "assignments/assignment-2/Assignment-2.js",
+          "fileType": "js",
+          "fileName": "script.js"
+        }
+      ]
     },
     {
       "id": "Assignment-3",
       "title": "Assignment 3: Portfolio Website",
       "description": "Built a personal portfolio website.",
       "docPath": "docs/Assignment-3.pdf",
-      "filePath": "assignments/assignment-3/assignment-3-portfolio.html",
-      "fileType": "html"
+      "files": [
+        {
+          "filePath": "assignments/assignment-3/assignment-3.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        },
+        {
+          "filePath": "assignments/assignment-3/styles.css",
+          "fileType": "css",
+          "fileName": "CSS"
+        },
+        {
+          "filePath": "assignments/assignment-3/script.js",
+          "fileType": "js",
+          "fileName": "JS"
+        }
+      ]
     },
     {
       "id": "Assignment-4-GUPC",
       "title": "Assignment 4: Dynamic Github User Profile Card",
       "description": "Made a dynamic Github user profile card using GitHub API.",
       "docPath": "docs/Assignment-4.pdf",
-      "filePath": "assignments/assignment-4/gupc.html",
-      "fileType": "html"
+      "files": [
+        {
+          "filePath": "assignments/assignment-4/gupc/gupc.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        },
+        {
+          "filePath": "assignments/assignment-4/gupc/styles.css",
+          "fileType": "css",
+          "fileName": "CSS"
+        },
+        {
+          "filePath": "assignments/assignment-4/gupc/script.js",
+          "fileType": "js",
+          "fileName": "JS"
+        }
+      ]
     },
     {
       "id": "Assignment-4-WC",
       "title": "Assignment 4: Weather Card",
-      "description": "Built a wearther card using weather API.",
+      "description": "Built a weather card using weather API.",
       "docPath": "docs/Assignment-4.pdf",
-      "filePath": "assignments/assignment-4/weathercard.html",
-      "fileType": "html"
+      "files": [
+        {
+          "filePath": "assignments/assignment-4/weathercard/weathercard.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        },
+        {
+          "filePath": "assignments/assignment-4/weathercard/styles.css",
+          "fileType": "css",
+          "fileName": "CSS"
+        },
+        {
+          "filePath": "assignments/assignment-4/weathercard/script.js",
+          "fileType": "js",
+          "fileName": "JS"
+        }
+      ]
     },
     {
       "id": "Assignment-5",
       "title": "Assignment 5: JavaScript Fundamentals",
       "description": "JavaScript functions with various examples.",
       "docPath": "docs/Assignment-5.pdf",
-      "filePath": "assignments/Assignment-5.js",
-      "fileType": "js"
+      "files": [
+        {
+          "fileName": "JS",
+          "filePath": "assignments/assignment-5/Assignment-5.js",
+          "fileType": "js"
+        }
+      ]
     },
     {
       "id": "Assignment-6",
       "title": "Assignment 6: JavaScript Functions and Array Methods",
       "description": "JavaScript functions and Array Methods with various examples.",
       "docPath": "docs/Assignment-6.pdf",
-      "filePath": "assignments/Assignment-6.js",
-      "fileType": "js"
+      "files": [
+        {
+          "filePath": "assignments/assignment-6/Assignment-6.js",
+          "fileType": "js",
+          "fileName": "JS"
+        }
+      ]
     },
     {
       "id": "Assignment-7",
       "title": "Assignment 7: Array Methods",
       "description": "Array Manipulation.",
       "docPath": "docs/Assignment-7.pdf",
-      "filePath": "assignments/assignment-7/Assignment-7-Part1&2.js",
-      "fileType": "js"
+      "files": [
+        {
+          "filePath": "assignments/assignment-7/part1&2/Assignment-7-Part1&2.js",
+          "fileType": "js",
+          "fileName": "JS"
+        }
+      ]
     },
     {
       "id": "Assignment-7P3",
       "title": "Assignment 7: DOM Manipulation",
       "description": "DOM Element Creation and Manipulation.",
       "docPath": "docs/Assignment-7.pdf",
-      "filePath": "assignments/assignment-7/part-3/dom.html",
-      "fileType": "html"
+      "files": [
+        {
+          "filePath": "assignments/assignment-7/part-3/dom.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        }
+      ]
     },
     {
       "id": "Assignment-7P4",
       "title": "Assignment 7: Form Validation",
       "description": "Form validation using JavaScript.",
       "docPath": "docs/Assignment-7.pdf",
-      "filePath": "assignments/assignment-7/part-4/form.html",
-      "fileType": "html"
+      "files": [
+        {
+          "filePath": "assignments/assignment-7/part-4/form.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        }
+      ]
+    },
+    {
+      "id": "Assignment-8",
+      "title": "Assignment 8: Movie Search and Display App",
+      "description": "Created a movie search and display app using the OMDB API which allow users to search for a movie by title and efficiently display the movie details.",
+      "docPath": "docs/Assignment-8.pdf",
+      "files": [
+        {
+          "filePath": "assignments/assignment-8/Assignment-8.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        },
+        {
+          "filePath": "assignments/assignment-8/styles.css",
+          "fileType": "css",
+          "fileName": "CSS"
+        },
+        {
+          "filePath": "assignments/assignment-8/script.js",
+          "fileType": "js",
+          "fileName": "JS"
+        }
+      ]
     }
   ]
 }

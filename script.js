@@ -90,49 +90,100 @@ async function loadAssignments() {
       const card = document.createElement("div");
       card.className = "assignment-card";
 
-      // Determine file type icon and description
-      let fileTypeIcon = "";
+      // Determine file type icons and descriptions based on files array
+      let fileTypeIcons = [];
       let fileTypeDesc = "";
-
-      switch (assignment.fileType.toLowerCase()) {
-        case "html":
-          fileTypeIcon = `
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
-                    `;
-          fileTypeDesc = "HTML Solution";
-          break;
-        case "js":
-          fileTypeIcon = `
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                        </svg>
-                    `;
-          fileTypeDesc = "JavaScript Solution";
-          break;
-        case "css":
-          fileTypeIcon = `
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
-             stroke-width="1.5" stroke="currentColor" width="24" height="24">
-            <path stroke-linecap="round" stroke-linejoin="round" 
-                d="M8.25 4.5c-1.5 0-2.25.75-2.25 2.25v3c0 1.5-.75 2.25-2.25 2.25 
-                   1.5 0 2.25.75 2.25 2.25v3c0 1.5.75 2.25 2.25 2.25m7.5-15
-                   c1.5 0 2.25.75 2.25 2.25v3c0 1.5.75 2.25 2.25 2.25
-                   -1.5 0-2.25.75-2.25 2.25v3c0 1.5-.75 2.25-2.25 2.25" />
-        </svg>
-    `;
-          fileTypeDesc = "CSS Solution";
-          break;
-        default:
-          fileTypeIcon = `
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                        </svg>
-                    `;
-          fileTypeDesc = "Solution";
+      
+      // Process each file in the assignment
+      if (assignment.files && assignment.files.length > 0) {
+        // Track unique file types
+        const fileTypes = new Set();
+        
+        // Add each file type to the set
+        assignment.files.forEach(file => {
+          fileTypes.add(file.fileType.toLowerCase());
+        });
+        
+        // Generate icons for each unique file type
+        fileTypes.forEach(fileType => {
+          let icon = "";
+          
+          switch (fileType) {
+            case "html":
+              icon = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+              `;
+              fileTypeIcons.push(icon);
+              break;
+            case "js":
+              icon = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                </svg>
+              `;
+              fileTypeIcons.push(icon);
+              break;
+            case "css":
+              icon = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                     stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" 
+                        d="M8.25 4.5c-1.5 0-2.25.75-2.25 2.25v3c0 1.5-.75 2.25-2.25 2.25 
+                           1.5 0 2.25.75 2.25 2.25v3c0 1.5.75 2.25 2.25 2.25m7.5-15
+                           c1.5 0 2.25.75 2.25 2.25v3c0 1.5.75 2.25 2.25 2.25
+                           -1.5 0-2.25.75-2.25 2.25v3c0 1.5-.75 2.25-2.25 2.25" />
+                </svg>
+              `;
+              fileTypeIcons.push(icon);
+              break;
+            default:
+              icon = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+              `;
+              fileTypeIcons.push(icon);
+          }
+        });
+        
+        // Create description based on number of files
+        if (assignment.files.length === 1) {
+          const fileType = assignment.files[0].fileType.toLowerCase();
+          switch (fileType) {
+            case "html":
+              fileTypeDesc = "HTML Solution";
+              break;
+            case "js":
+              fileTypeDesc = "JavaScript Solution";
+              break;
+            case "css":
+              fileTypeDesc = "CSS Solution";
+              break;
+            default:
+              fileTypeDesc = "Solution";
+          }
+        } else {
+          fileTypeDesc = `${assignment.files.length} Files Solution`;
+        }
+      } else {
+        // Fallback for old format
+        let fileTypeIcon = `
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="24" height="24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+          </svg>
+        `;
+        fileTypeIcons.push(fileTypeIcon);
+        fileTypeDesc = "Solution";
       }
 
+      // Generate file type icons HTML
+      let fileTypeIconsHTML = '';
+      fileTypeIcons.forEach(icon => {
+          fileTypeIconsHTML += `<div class="file-icon">${icon}</div>`;
+      });
+      
       card.innerHTML = `
                 <div class="card-header">
                     <h3>${assignment.title}</h3>
@@ -144,7 +195,9 @@ async function loadAssignments() {
                 </div>
                 <div class="card-body">
                     <div class="file-type">
-                        ${fileTypeIcon}
+                        <div class="file-icons-container">
+                            ${fileTypeIconsHTML}
+                        </div>
                         <span>${fileTypeDesc}</span>
                     </div>
                     <div class="card-buttons">

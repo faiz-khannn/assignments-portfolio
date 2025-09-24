@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Nunito:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>✨ CineDiscover</h1>
+        <p>Your magical gateway to movie exploration</p>
+      </div>
+
+      <div class="search-section">
+        <div class="search-container">
+          <div class="search-input-wrapper">
+            <input
+              type="text"
+              class="search-input"
+              id="searchInput"
+              placeholder="Enter movie title (e.g., Guardians of the Galaxy Vol. 2)"
+            />
+            <button class="clear-btn" id="clearBtn" title="Clear search">
+              ✕
+            </button>
+            <div class="suggestions-dropdown" id="suggestionsDropdown"></div>
+          </div>
+          <button class="search-btn" id="searchBtn">Search</button>
+        </div>
+      </div>
+
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Searching for movies...</p>
+      </div>
+
+      <div class="error-message" id="errorMessage">
+        Movie not found, try another title
+      </div>
+
+      <div class="movie-container" id="movieContainer">
+        <div class="movie-content">
+          <div class="movie-poster-container"></div>
+          <div class="movie-details"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

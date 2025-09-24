@@ -57,28 +57,48 @@ document.addEventListener('DOMContentLoaded', () => {
             // Load PDF document with simpler approach
             loadPdfWithEmbed(assignment.docPath, assignment.title);
             
-            // Load solution file
-            loadSolutionFile(assignment.filePath, assignment.fileType);
+            // Load solution files
+            loadSolutionFiles(assignment.files);
             
             // Configure the preview button
-            const previewBtn = document.getElementById('preview-btn');
-            previewBtn.addEventListener('click', () => {
-                if (assignment.fileType === 'html') {
-                    window.open(assignment.filePath, '_blank');
-                } else if (assignment.fileType === 'css') {
-                    window.open(assignment.filePath, '_blank');
-                } 
-                else if (assignment.fileType === 'js') {
-                    // Create a preview HTML file dynamically with the JS content
-                    createPreviewPage(assignment);
-                }
+            let previewBtnElement = document.getElementById('preview-btn');
+            const fileSelect = document.getElementById('file-select');
+            
+            // Function to update preview button behavior based on selected file
+            const updatePreviewButton = () => {
+                // Remove existing event listeners
+                const newPreviewBtn = previewBtnElement.cloneNode(true);
+                previewBtnElement.parentNode.replaceChild(newPreviewBtn, previewBtnElement);
+                previewBtnElement = newPreviewBtn;
                 
-                // Add click animation
-                previewBtn.classList.add('button-clicked');
-                setTimeout(() => {
-                    previewBtn.classList.remove('button-clicked');
-                }, 300);
-            });
+                // Get currently selected file
+                const selectedFileIndex = fileSelect.value ? parseInt(fileSelect.value) : 0;
+                const selectedFile = assignment.files[selectedFileIndex];
+                
+                // Add new event listener
+                previewBtnElement.addEventListener('click', () => {
+                    if (selectedFile.fileType === 'html') {
+                        window.open(selectedFile.filePath, '_blank');
+                    } else if (selectedFile.fileType === 'css') {
+                        window.open(selectedFile.filePath, '_blank');
+                    } else if (selectedFile.fileType === 'js') {
+                        // Create a preview HTML file dynamically with the JS content
+                        createPreviewPage(selectedFile);
+                    }
+                    
+                    // Add click animation
+                    previewBtnElement.classList.add('button-clicked');
+                    setTimeout(() => {
+                        previewBtnElement.classList.remove('button-clicked');
+                    }, 300);
+                });
+            };
+            
+            // Initial setup of preview button
+            updatePreviewButton();
+            
+            // Update preview button when file selection changes
+            fileSelect.addEventListener('change', updatePreviewButton);
         })
         .catch(error => {
             console.error('Error fetching assignment data:', error);
@@ -239,8 +259,50 @@ function loadPdfWithEmbed(pdfPath, title) {
     }, 100);
 }
 
-// Load solution file with improved UX
-async function loadSolutionFile(filePath, fileType) {
+// Load solution files with improved UX
+async function loadSolutionFiles(files) {
+    try {
+        const fileSelector = document.getElementById('file-selector');
+        const fileSelect = document.getElementById('file-select');
+        const codeBlock = document.getElementById('code-block');
+        const runBtn = document.getElementById('run-btn');
+        
+        // Clear any existing options
+        fileSelect.innerHTML = '';
+        
+        // Show file selector if there are multiple files
+        if (files.length > 1) {
+            fileSelector.style.display = 'flex';
+            
+            // Add options for each file
+            files.forEach((file, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = file.fileName;
+                fileSelect.appendChild(option);
+            });
+            
+            // Add change event listener
+            fileSelect.addEventListener('change', () => {
+                const selectedIndex = parseInt(fileSelect.value);
+                loadFileContent(files[selectedIndex]);
+            });
+        } else {
+            fileSelector.style.display = 'none';
+        }
+        
+        // Load the first file by default
+        if (files.length > 0) {
+            loadFileContent(files[0]);
+        }
+    } catch (error) {
+        console.error('Error setting up file selector:', error);
+        document.getElementById('code-block').textContent = `Error setting up file selector: ${error.message}`;
+    }
+}
+
+// Load individual file content
+async function loadFileContent(file) {
     try {
         const codeBlock = document.getElementById('code-block');
         const runBtn = document.getElementById('run-btn');
@@ -249,26 +311,32 @@ async function loadSolutionFile(filePath, fileType) {
         codeBlock.innerHTML = '<div class="code-loading">Loading code...</div>';
         
         // Set the appropriate language class for syntax highlighting
-        codeBlock.className = `language-${fileType}`;
+        codeBlock.className = `language-${file.fileType}`;
         
         // Show/hide run button based on file type
-        if (fileType === 'js') {
+        if (file.fileType === 'js') {
             runBtn.style.display = 'flex';
-            runBtn.addEventListener('click', () => {
+            
+            // Remove any existing event listeners
+            const newRunBtn = runBtn.cloneNode(true);
+            runBtn.parentNode.replaceChild(newRunBtn, runBtn);
+            
+            // Add new event listener
+            newRunBtn.addEventListener('click', () => {
                 // Add click animation
-                runBtn.classList.add('button-clicked');
+                newRunBtn.classList.add('button-clicked');
                 setTimeout(() => {
-                    runBtn.classList.remove('button-clicked');
+                    newRunBtn.classList.remove('button-clicked');
                 }, 300);
                 
-                executeJavaScript(filePath);
+                executeJavaScript(file.filePath);
             });
         } else {
             runBtn.style.display = 'none';
         }
         
         // Fetch the file content
-        const response = await fetch(filePath);
+        const response = await fetch(file.filePath);
         if (!response.ok) {
             throw new Error(`Failed to load file: ${response.status} ${response.statusText}`);
         }
@@ -399,7 +467,7 @@ async function executeJavaScript(filePath) {
 }
 
 // Create a preview page for JS files
-function createPreviewPage(assignment) {
+function createPreviewPage(file) {
     const previewWindow = window.open('', '_blank');
     
     if (!previewWindow) {
@@ -412,7 +480,7 @@ function createPreviewPage(assignment) {
     previewWindow.document.write(`
         <html>
         <head>
-            <title>Loading ${assignment.title}...</title>
+            <title>Loading ${file.fileName}...</title>
             <style>
                 body {
                     font-family: 'Poppins', sans-serif;
@@ -443,7 +511,7 @@ function createPreviewPage(assignment) {
         </html>
     `);
     
-    fetch(assignment.filePath)
+    fetch(file.filePath)
         .then(response => response.text())
         .then(code => {
             const htmlContent = `
@@ -452,7 +520,7 @@ function createPreviewPage(assignment) {
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>${assignment.title} Preview</title>
+                    <title>${file.fileName} Preview</title>
                     <style>
                         :root {
                             --bg-color: #f5f7fa;
@@ -556,7 +624,7 @@ function createPreviewPage(assignment) {
                     </style>
                 </head>
                 <body>
-                    <h1>${assignment.title} Preview</h1>
+                    <h1>${file.fileName} Preview</h1>
                     <button id="run-code">Run Code</button>
                     <h2>Code:</h2>
                     <pre><code>${escapeHtml(code)}</code></pre>
