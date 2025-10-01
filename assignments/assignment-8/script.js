@@ -167,7 +167,7 @@ function searchForMovie() {
   // API URL for detailed movie info
   var url = apiUrl + "?apikey=" + apiKey + "&t=" + movieTitle + "&plot=full";
 
-  // MAPI request
+  // API request
   fetch(url)
     .then(function (response) {
       return response.json();
