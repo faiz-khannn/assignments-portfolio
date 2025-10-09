@@ -205,6 +205,34 @@
           "fileName": "JS"
         }
       ]
+    },
+    {
+      "id": "Assignment-9",
+      "title": "Assignment 9: React Project",
+      "description": "Nested Header element and Header Component.",
+      "docPath": "docs/Assignment-9.pdf",
+      "files": [
+        {
+          "filePath": "assignments/assignment-9/assignment-9.html",
+          "fileType": "html",
+          "fileName": "HTML"
+        },
+        {
+          "filePath": "assignments/assignment-9/style.css",
+          "fileType": "css",
+          "fileName": "CSS"
+        },
+        {
+          "filePath": "assignments/assignment-9/question1.js",
+          "fileType": "js",
+          "fileName": "Question-01"
+        },
+        {
+          "filePath": "assignments/assignment-9/question2.js",
+          "fileType": "js",
+          "fileName": "Question-02"
+        }
+      ]
     }
   ]
 }
