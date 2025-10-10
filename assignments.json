@@ -231,6 +231,11 @@
           "filePath": "assignments/assignment-9/question2.js",
           "fileType": "js",
           "fileName": "Question-02"
+        },
+        {
+          "filePath": "assignments/assignment-9/question3.txt",
+          "fileType": "txt",
+          "fileName": "Question-03"
         }
       ]
     }

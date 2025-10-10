@@ -1,0 +1,37 @@
+Q3 Learned about:
+
+a. What is JSX?
+    So basically JSX is a special syntax that is used to write HTML like code in Javascript.
+
+b. {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX.
+    i. {TitleComponent} - it is a variable or a function refrence and is not rendered.
+    ii.  {<TitleComponent/>} - it is self closing and it does render the component.
+    iii. {<TitleComponent></TitleComponent>} - it is same like the above but has a opening and a closing tag and is useful if the component has children inside it.
+
+c. What is <React.Fragment></React.Fragment> and <> </>.
+    Both are used for the same purpose and used when we want to return multiple elements from a component without adding an extra <div>. <React.Fragment></React.Fragment> is the long form and <> </> is the short form.
+
+d. What is Virtual DOM?
+    So in simple words Virtual DOM is used to make the React app faster and smoother as it is lightweight copy of the real dom, stored in the memory and in case of any chnages react first upddate the virtual dom, compares it to the old version and only updates the part changed in the real dom.
+
+e. What is Reconciliation in React?
+    It is the process of updating the Virtual DOM when a change is detected when compared to the older version of it. Through this react manages to make the changes on the screen without refreshing the page.
+
+f. What is React Fiber?
+    So React FIber is the new internal engine of react which handles how updates and rendering works. This makes React more efficient and allows things like smooth animations, pausing work, and updating UI in small parts instead of all at once.
+
+g. Why and when do we need keys in React? Can we use index  as keys in React?
+    So keys helps us identify which elements in a list have been changed, added or removed. We use it when using .map() or any list of elements. We can use index as keys but that not a good practise because if the list changes then the react will get confused and might re-render the wrong items. The best practise is to use unique-ids.
+
+h. What is props in React? Ways to use them.
+    Props is short for properties and are used to send data from one component to another, it is like passing arguments into a function. This make components reusable and dynamic. And they are read only and are not changed inside the component.
+    
+    Example:
+
+    function Welcome(props) {
+        return <h2>Hello, {props.name}!</h2>;
+}
+
+    <Welcome name="Faiz" />
+
+
